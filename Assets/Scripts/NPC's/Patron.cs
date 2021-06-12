@@ -6,11 +6,13 @@ public class Patron : MonoBehaviour
 {
     private List<RuneType> runes;
     private RuneType rune;
+    private ChatBubble chatbubble;
 
     // Start is called before the first frame update
     void Start()
     {
         runes = new List<RuneType>();
+        chatbubble = transform.Find("Chat Bubble").GetComponent<ChatBubble>();
 
         // Get each type of rune the patron can ask for.
         foreach (RuneType type in Enum.GetValues(typeof(RuneType)))
@@ -24,6 +26,6 @@ public class Patron : MonoBehaviour
         // TODO change from being hard coded numbers, only here for testing
         int amount = UnityEngine.Random.Range(1, 5);
 
-        Debug.Log("Yo dawg, let me get a " + rune + " rune. I'll take " + amount +  " of them.");
+        chatbubble.SetText("Greetings Dwarf, I will purchase a " + rune + " rune. I'll take " + amount +  " of them.");
     }
 }
