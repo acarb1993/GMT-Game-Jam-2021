@@ -19,7 +19,13 @@ public class Movement : MonoBehaviour
         xMove = Input.GetAxis("Horizontal");
         yMove = 0;
 
-        if (climb.Climbing)
+        // Have the player face the direction they're moving towards
+        if (xMove > 0)
+            transform.localScale = Vector3.one;
+        else if (xMove < 0)
+            transform.localScale = new Vector3(-1, 1, 1);
+
+        if(climb.Climbing)
         {
             yMove = Input.GetAxis("Vertical");
         }
@@ -29,6 +35,5 @@ public class Movement : MonoBehaviour
     {
         Vector2 input = new Vector2(xMove, yMove);
         rb2d.MovePosition(rb2d.position + input * Time.fixedDeltaTime * speed);
-        Debug.Log(speed);
     }
 }

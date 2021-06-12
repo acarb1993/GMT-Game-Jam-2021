@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Rune : ScriptableObject
 {
-    public new string name;
+    public RuneType runeType;
     public string description;
     public Sprite artwork;
     public float cost;

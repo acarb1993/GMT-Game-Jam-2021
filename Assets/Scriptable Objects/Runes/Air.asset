@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 399ec0f39a2182e479d070e39d886b01, type: 3}
   m_Name: Air
   m_EditorClassIdentifier: 
-  name: Air
+  runeType: 4
   description: A basic rune made from the element air. This rune is one of the most
     basic you can craft and is easy to make
   artwork: {fileID: 21300000, guid: b9e6394f6d813d9418b167d21ae011c0, type: 3}
