@@ -1,19 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PatronMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 2;
-    private GameObject shopEntrance;
+    private GameObject shopQueue;
+    private Transform queueSpot;
     
     void Start()
     {
-        shopEntrance = GameObject.Find("Shop Entrance");
+        shopQueue = GameObject.Find("Shop Queue");
+        ShopQueue sq = shopQueue.GetComponent<ShopQueue>();
+
+        queueSpot = sq.CreatePosition().transform;
+        
     }
 
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, shopEntrance.transform.position, Time.deltaTime * speed);
+        transform.position = Vector2.MoveTowards(transform.position, queueSpot.position, Time.deltaTime * speed);
     }
 }
