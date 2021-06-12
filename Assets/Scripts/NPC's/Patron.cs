@@ -26,6 +26,7 @@ public class Patron : MonoBehaviour
         // TODO change from being hard coded numbers, only here for testing
         int amount = UnityEngine.Random.Range(1, 5);
 
+        chatbubble.SetIcon(rune);
         chatbubble.SetText("Greetings Dwarf, I will purchase a " + rune + " rune. I'll take " + amount +  " of them.");
     }
 }

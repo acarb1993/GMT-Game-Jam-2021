@@ -13,12 +13,17 @@ public class ChatBubble : MonoBehaviour
         tmp = transform.Find("Text").GetComponent<TextMeshPro>();
     }
 
-    private void Start()
-    {
-    }
-
     public void SetText(string text)
     {
         tmp.SetText(text);
+    }
+
+    // Displays the icon of the given rune type in the chat bubble
+    public void SetIcon(RuneType rt)
+    {
+        if(rt == RuneType.Blank)
+            iconSpriteRenderer.sprite = Resources.Load<Sprite>("Sprites/Rune");
+        else
+            iconSpriteRenderer.sprite = Resources.Load<Sprite>("Sprites/"+rt+"-Rune");
     }
 }
