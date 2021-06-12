@@ -12,7 +12,7 @@ public class PatronMovement : MonoBehaviour
         ShopQueue sq = shopQueue.GetComponent<ShopQueue>();
 
         queueSpot = sq.CreatePosition().transform;
-        
+        // Test
     }
 
     void Update()
