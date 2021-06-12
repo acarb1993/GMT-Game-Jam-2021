@@ -7,18 +7,18 @@ public class Door : MonoBehaviour
     public Animator anim;
     public GameObject door;
     public GameObject doorUI;
+    private bool canOpen;
 
     private void Awake()
     {
         doorUI.SetActive(false);
+        canOpen = false;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void Update()
     {
-        if (collision.gameObject.tag == "Player" && anim.GetBool("isOpenDoor") == false)
+        if(canOpen)
         {
-            doorUI.SetActive(true);
-
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 anim.SetBool("isOpenDoor", true);
@@ -30,13 +30,23 @@ public class Door : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && !anim.GetBool("isOpenDoor"))
+        {
+            doorUI.SetActive(true);
+            canOpen = true;
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D other)
     {
         if(other.gameObject.tag == "Player")
         {
             doorUI.SetActive(false);
+            canOpen = false;
 
-            if (anim.GetBool("isOpenDoor") == true)
+            if (anim.GetBool("isOpenDoor") )
             {
                 anim.SetBool("isOpenDoor", false);
                 anim.SetBool("isClosedDoor", true);
