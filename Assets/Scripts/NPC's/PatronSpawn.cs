@@ -1,27 +1,28 @@
+using System.Collections;
 using UnityEngine;
 
 public class PatronSpawn : MonoBehaviour
 {
     // Patrons spawn in between these intervals
-    [SerializeField] private float spawnTime = 45.0f;
+    [SerializeField] private float spawnTime = 5.0f;
     [SerializeField] private int amountToSpawn = 5;
     [SerializeField] GameObject patron;
     private float timer;
-    // Start is called before the first frame update
+
     void Start()
     {
         timer = spawnTime;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
 
-        if (timer % spawnTime == 0)
+        if(timer > spawnTime)
         {
             Instantiate(patron, transform);
+            timer = 0;
         }
-
-        timer = Time.time;
     }
+
 }

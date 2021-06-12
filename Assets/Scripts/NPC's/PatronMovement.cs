@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PatronMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 5;
+    [SerializeField] private float speed = 2;
     private GameObject shopEntrance;
     
     void Start()
