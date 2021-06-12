@@ -8,7 +8,6 @@ public class Door : MonoBehaviour
     public GameObject door;
     public GameObject doorUI;
 
-    //Test
     private void Awake()
     {
         doorUI.SetActive(false);
