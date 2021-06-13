@@ -18,6 +18,6 @@ public class Inventory : MonoBehaviour
     public void addToInventory(RuneType runeType, int amount)
     {
         inventory[runeType] += amount;
-        Debug.Log(runeType);
+        Debug.Log(runeType + ": " + inventory[runeType]);
     }
 }

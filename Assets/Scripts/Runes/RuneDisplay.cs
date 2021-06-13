@@ -14,6 +14,5 @@ public class RuneDisplay : MonoBehaviour
     {
         sr = GetComponent<SpriteRenderer>();
         sr.sprite = rune.artwork;
-        
     }
 }
