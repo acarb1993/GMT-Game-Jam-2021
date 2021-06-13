@@ -13,6 +13,7 @@ public class Inventory : MonoBehaviour
         foreach(RuneType type in Enum.GetValues(typeof(RuneType))) {
             inventory.Add(type, 0);
         }
+        // test
     }
 
     public void addToInventory(RuneType runeType, int amount)
