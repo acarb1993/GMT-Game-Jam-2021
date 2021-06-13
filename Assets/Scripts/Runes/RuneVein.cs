@@ -44,7 +44,7 @@ public class RuneVein : MonoBehaviour
     {
         veinDurability -= 20;
 
-        print(veinDurability);
+        Debug.Log(veinDurability);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

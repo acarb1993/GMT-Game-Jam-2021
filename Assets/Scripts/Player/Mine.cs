@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Mine : MonoBehaviour
 {
+
+    private RuneVein rv;
     public Animator anim;
 
     public bool isMining;
@@ -20,6 +22,11 @@ public class Mine : MonoBehaviour
         {
             anim.SetBool("isMining", true);
             isMining = true;
+
+            if(rv != null)
+            {
+                rv.VeinDamage();
+            }
         }
 
         else
@@ -27,5 +34,15 @@ public class Mine : MonoBehaviour
             anim.SetBool("isMining", false);
             isMining = false;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        rv = collision.gameObject.GetComponent<RuneVein>();
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        rv = null;
     }
 }
