@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3858385853951618780}
   - component: {fileID: 3858385853951618781}
   - component: {fileID: 3849875466597932921}
-  - component: {fileID: 6233719900384007375}
   - component: {fileID: 2518880873419379121}
   m_Layer: 0
   m_Name: Rune
@@ -99,18 +98,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rune: {fileID: 0}
   type: 0
---- !u!114 &6233719900384007375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3858385853951618782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0674eb3458b573a43ace5cc3e02666ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &2518880873419379121
 CircleCollider2D:
   m_ObjectHideFlags: 0

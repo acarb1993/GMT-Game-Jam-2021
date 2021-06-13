@@ -5,12 +5,12 @@ using UnityEngine;
 public class Craft : MonoBehaviour
 {
     private RuneTable craftingTable;
-    private RuneType type;
+    private Inventory inv;
     // Start is called before the first frame update
     void Start()
     {
         craftingTable = GameObject.Find("Rune-Table").GetComponent<RuneTable>(); ;
-        type = GetComponent<RuneDisplay>().type;
+        inv = GetComponent<Inventory>();
     }
 
     // Update is called once per frame
@@ -24,7 +24,9 @@ public class Craft : MonoBehaviour
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
                 if(hit.collider != null)
                 {
-                    Debug.Log(hit.collider.name);
+                    RuneDisplay rd = hit.transform.gameObject.GetComponent<RuneDisplay>();
+                    RuneType rt = rd.type;
+                    inv.addToInventory(rt, 1);
                 }
             }
         }
