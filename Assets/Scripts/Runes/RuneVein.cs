@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RuneVein : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class RuneVein : MonoBehaviour
         mining = FindObjectOfType<Mine>();
         playerInventory = player.GetComponent<Inventory>();
         canMine = false;
+        Init();
     }
 
     public int Init()
@@ -38,13 +40,16 @@ public class RuneVein : MonoBehaviour
                 playerInventory.addToInventory(RuneType.Blank, 1);
             }
         }
+
+        if(veinDurability <= 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     public void VeinDamage()
     {
         veinDurability -= 20;
-
-        Debug.Log(veinDurability);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -53,11 +58,6 @@ public class RuneVein : MonoBehaviour
         {
             canMine = true;
             mineUI.gameObject.SetActive(true);
-
-            if (mining.isMining == true)
-            {
-                VeinDamage();
-            }
         }
     }
 
