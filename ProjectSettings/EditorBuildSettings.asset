@@ -5,7 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Main Menu.unity
+    guid: e0e8d420a484ece408ebfb5959b21d0e
+  - enabled: 1
+    path: Assets/Scenes/DwarfMiner.unity
+    guid: c67f2d72c5cd6f341b79534d7189c2c7
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 0abfb39ed4046cc4cbb024dd2c7a09b0
   m_configObjects: {}

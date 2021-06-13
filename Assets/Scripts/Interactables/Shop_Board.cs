@@ -10,8 +10,6 @@ public class Shop_Board : MonoBehaviour
     public GameObject shopUI;
     public GameObject shop_BoardGUI;
 
-    Movement playerMove;
-
     private void Awake()
     {
         shopUI.SetActive(false);
@@ -22,29 +20,31 @@ public class Shop_Board : MonoBehaviour
 
     void Update()
     {
-        if (canShop)
+        if (canShop && !isShopping)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                isShopping = true;
+
                 shopUI.SetActive(false);
                 shop_BoardGUI.SetActive(true);
 
-                isShopping = true;
+                Cursor.lockState = CursorLockMode.Confined;
+                Time.timeScale = 0;
             }
         }
 
-        if (isShopping)
+        else if (isShopping)
         {
-            playerMove = FindObjectOfType<Movement>();
-            playerMove.enabled = false;
-
-            if (Input.GetKeyDown(KeyCode.Backspace))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                isShopping = false;
+                shopUI.SetActive(true);
                 shop_BoardGUI.SetActive(false);
 
-                playerMove = FindObjectOfType<Movement>();
-                playerMove.enabled = true;
+                isShopping = false;
+
+                Cursor.lockState = CursorLockMode.Locked;
+                Time.timeScale = 1;
             }
         }
     }
