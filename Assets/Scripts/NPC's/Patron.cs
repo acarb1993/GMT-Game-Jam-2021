@@ -7,6 +7,8 @@ public class Patron : MonoBehaviour
     private List<RuneType> runes;
     private RuneType rune;
     private ChatBubble chatbubble;
+    private Inventory playerInventory;
+    private int amount;
 
     // Start is called before the first frame update
     void Start()
@@ -23,10 +25,44 @@ public class Patron : MonoBehaviour
         // Get a random rune and amount
         int index = UnityEngine.Random.Range(0, runes.Count);
         rune = runes[index];
-        // TODO change from being hard coded numbers, only here for testing
-        int amount = UnityEngine.Random.Range(1, 5);
+        // TODO change from being hard coded numbers, only here for testing, this won't happen OOF
+        amount = UnityEngine.Random.Range(1, 5);
 
         chatbubble.SetIcon(rune);
         chatbubble.SetText("Greetings Dwarf, I will purchase a " + rune + " rune. I'll take " + amount +  " of them.");
+
+        playerInventory = GameObject.Find("Player").GetComponent<Inventory>();
+    }
+
+    public bool Purchase()
+    {
+        if(playerInventory.inventory[rune] >= amount)
+        {
+            chatbubble.SetText("Thanks little guy, i'm off!");
+            return true;
+        }
+
+        chatbubble.SetText("I don't believe you have enough runes in stock, you need " + amount + " of them");
+        return false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Sell sell = collision.GetComponent<Sell>();
+        
+        if(sell != null)
+        {
+            sell.patron = GetComponent<Patron>();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Sell sell = collision.GetComponent<Sell>();
+
+        if (sell != null)
+        {
+            sell.patron = null;
+        }
     }
 }
