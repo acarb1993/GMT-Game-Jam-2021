@@ -16,11 +16,6 @@ public class Mine : MonoBehaviour
     
     void Update()
     {
-        Mining();
-    }
-
-    public void Mining()
-    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             anim.SetBool("isMining", true);

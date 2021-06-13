@@ -59,9 +59,9 @@ public class RuneVein : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        if(collision.CompareTag("Player"))
+        if (collision.collider.tag == "Player")
         {
             canMine = false;
             mineUI.gameObject.SetActive(false);
