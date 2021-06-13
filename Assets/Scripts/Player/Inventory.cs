@@ -5,7 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     Dictionary<RuneType, int> inventory;
-    public Inventory()
+    void Start ()
     {
         inventory = new Dictionary<RuneType, int>();
 
@@ -18,5 +18,6 @@ public class Inventory : MonoBehaviour
     public void addToInventory(RuneType runeType, int amount)
     {
         inventory[runeType] += amount;
+        Debug.Log(runeType);
     }
 }

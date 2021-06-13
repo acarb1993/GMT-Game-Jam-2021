@@ -3,7 +3,15 @@ using UnityEngine;
 public class RuneTable : MonoBehaviour
 {
     [SerializeField] private Transform tableUI;
-    private bool canCraft;
+    [SerializeField] private GameObject player;
+    private Inventory inv;
+    public bool CanCraft { get; set; }
+
+    void Start()
+    {
+        CanCraft = false;
+        inv = player.GetComponent<Inventory>();
+    }
 
     void Update()
     {
@@ -15,7 +23,7 @@ public class RuneTable : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             tableUI.gameObject.SetActive(true);
-            canCraft = true;
+            CanCraft = true;
         }
     }
 
@@ -24,7 +32,12 @@ public class RuneTable : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             tableUI.gameObject.SetActive(false);
-            canCraft = false;
+            CanCraft = false;
         }
+    }
+
+    public void AddToPlayerInventory(RuneType type, int amt)
+    {
+        inv.addToInventory(type, amt);
     }
 }
