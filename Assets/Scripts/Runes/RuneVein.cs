@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RuneVein : MonoBehaviour
 {
+    [SerializeField] private GameObject player;
     [SerializeField] private Transform mineUI;
     private Inventory playerInventory;
     private bool canMine;
@@ -16,6 +17,7 @@ public class RuneVein : MonoBehaviour
     void Start()
     {
         mining = FindObjectOfType<Mine>();
+        playerInventory = player.GetComponent<Inventory>();
         canMine = false;
     }
 
