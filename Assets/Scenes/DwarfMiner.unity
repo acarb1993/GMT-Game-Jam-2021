@@ -3354,11 +3354,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 19512712}
   mineUI: {fileID: 730140227}
-  durabilityBar:
-    x: 0
-    y: 0
-    width: 0
-    height: 0
 --- !u!50 &1451733696
 Rigidbody2D:
   serializedVersion: 4
@@ -3667,6 +3662,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581613258}
   m_CullTransparentMesh: 1
+--- !u!1001 &1584750309
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2943217839533227618, guid: 9ef000f3646106e418170ea79a2a9f05, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943217839533227618, guid: 9ef000f3646106e418170ea79a2a9f05, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943217839533227618, guid: 9ef000f3646106e418170ea79a2a9f05, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.026
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943217839533227618, guid: 9ef000f3646106e418170ea79a2a9f05, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943217839533227618, guid: 9ef000f3646106e418170ea79a2a9f05, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943217839533227618, guid: 9ef000f3646106e418170ea79a2a9f05, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943217839533227618, guid: 9ef000f3646106e418170ea79a2a9f05, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943217839533227618, guid: 9ef000f3646106e418170ea79a2a9f05, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943217839533227618, guid: 9ef000f3646106e418170ea79a2a9f05, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943217839533227618, guid: 9ef000f3646106e418170ea79a2a9f05, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943217839533227618, guid: 9ef000f3646106e418170ea79a2a9f05, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8618183919951250569, guid: 9ef000f3646106e418170ea79a2a9f05, type: 3}
+      propertyPath: m_Name
+      value: Patron Spawn
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9ef000f3646106e418170ea79a2a9f05, type: 3}
 --- !u!1 &1591993768
 GameObject:
   m_ObjectHideFlags: 0
