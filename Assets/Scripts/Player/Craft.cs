@@ -9,7 +9,7 @@ public class Craft : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        craftingTable = GameObject.Find("Rune-Table").GetComponent<RuneTable>(); ;
+        craftingTable = GameObject.Find("Rune-Table").GetComponent<RuneTable>();
         inv = GetComponent<Inventory>();
     }
 
