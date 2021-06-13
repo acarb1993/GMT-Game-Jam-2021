@@ -5,12 +5,10 @@ using UnityEngine;
 public class Craft : MonoBehaviour
 {
     private RuneTable craftingTable;
-    private RuneType type;
     // Start is called before the first frame update
     void Start()
     {
         craftingTable = GameObject.Find("Rune-Table").GetComponent<RuneTable>(); ;
-        type = GetComponent<RuneDisplay>().type;
     }
 
     // Update is called once per frame
