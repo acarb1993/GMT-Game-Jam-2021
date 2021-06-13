@@ -7,13 +7,26 @@ public class RuneVein : MonoBehaviour
     [SerializeField] private Transform mineUI;
     private Inventory playerInventory;
     private bool canMine;
-    // Start is called before the first frame update
+
+    private Mine mining;
+
+    protected int veinDurability { get; set; }
+
+
     void Start()
     {
+        mining = FindObjectOfType<Mine>();
         canMine = false;
     }
 
-    // Update is called once per frame
+    public int Init()
+    {
+        veinDurability = 100;
+
+        return veinDurability;
+    }
+
+    
     void Update()
     {
         if(canMine)
@@ -25,12 +38,24 @@ public class RuneVein : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void VeinDamage()
     {
-        if(collision.CompareTag("Player"))
+        veinDurability -= 20;
+
+        print(veinDurability);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Player")
         {
             canMine = true;
             mineUI.gameObject.SetActive(true);
+
+            if (mining.isMining == true)
+            {
+                VeinDamage();
+            }
         }
     }
 
