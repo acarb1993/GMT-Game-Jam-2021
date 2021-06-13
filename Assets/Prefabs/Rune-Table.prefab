@@ -91,8 +91,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5108720055605245894}
-  - component: {fileID: 3719882530857695509}
   - component: {fileID: -7623542533905533973}
+  - component: {fileID: 3719882530857695509}
   m_Layer: 0
   m_Name: Rune-Table
   m_TagString: Untagged
@@ -115,19 +115,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3719882530857695509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2678635101233924644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e869917d0cfa9294f8f4fda30b6e21b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!61 &-7623542533905533973
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -154,3 +141,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8199465, y: 0.7271917}
   m_EdgeRadius: 0
+--- !u!114 &3719882530857695509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2678635101233924644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e869917d0cfa9294f8f4fda30b6e21b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tableUI: {fileID: 0}
