@@ -3,6 +3,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float speed = 5.0f;
+    [SerializeField] private Transform items;
     private float xMove, yMove;
     private Rigidbody2D rb2d;
     private Climb climb;
@@ -21,9 +22,9 @@ public class Movement : MonoBehaviour
 
         // Have the player face the direction they're moving towards
         if (xMove > 0)
-            transform.localScale = Vector3.one;
+            items.transform.localScale = Vector3.one;
         else if (xMove < 0)
-            transform.localScale = new Vector3(-1, 1, 1);
+            items.transform.localScale = new Vector3(-1, 1, 1);
 
         if(climb.Climbing)
         {
