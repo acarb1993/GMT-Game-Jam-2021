@@ -29,7 +29,6 @@ public class Shop_Board : MonoBehaviour
                 shopUI.SetActive(false);
                 shop_BoardGUI.SetActive(true);
 
-                Cursor.lockState = CursorLockMode.Confined;
                 Time.timeScale = 0;
             }
         }
@@ -43,7 +42,6 @@ public class Shop_Board : MonoBehaviour
 
                 isShopping = false;
 
-                Cursor.lockState = CursorLockMode.Locked;
                 Time.timeScale = 1;
             }
         }
