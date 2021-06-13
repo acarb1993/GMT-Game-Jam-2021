@@ -11,8 +11,9 @@ public class PatronMovement : MonoBehaviour
         shopQueue = GameObject.Find("Shop Queue");
         ShopQueue sq = shopQueue.GetComponent<ShopQueue>();
 
+        // TODO only make a new spot if all the available ones are taken.
+        // Also make it so the patrons move up in line if there's time
         queueSpot = sq.CreatePosition().transform;
-        // Test
     }
 
     void Update()
