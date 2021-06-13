@@ -19,6 +19,7 @@ public class RuneVein : MonoBehaviour
         mining = FindObjectOfType<Mine>();
         playerInventory = player.GetComponent<Inventory>();
         canMine = false;
+        Init();
     }
 
     public int Init()
@@ -53,11 +54,6 @@ public class RuneVein : MonoBehaviour
         {
             canMine = true;
             mineUI.gameObject.SetActive(true);
-
-            if (mining.isMining == true)
-            {
-                VeinDamage();
-            }
         }
     }
 

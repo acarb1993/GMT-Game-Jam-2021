@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    Dictionary<RuneType, int> inventory;
+    public Dictionary<RuneType, int> inventory;
     void Start ()
     {
         inventory = new Dictionary<RuneType, int>();
@@ -13,7 +13,6 @@ public class Inventory : MonoBehaviour
         foreach(RuneType type in Enum.GetValues(typeof(RuneType))) {
             inventory.Add(type, 0);
         }
-        // test
     }
 
     public void addToInventory(RuneType runeType, int amount)
