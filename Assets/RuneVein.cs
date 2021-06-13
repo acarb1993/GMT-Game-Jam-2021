@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class RuneVein : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
-    private Transform mineUI;
+    [SerializeField] private Transform mineUI;
     private Inventory playerInventory;
     private bool canMine;
     // Start is called before the first frame update
     void Start()
     {
-        playerInventory = player.GetComponent<Inventory>();
-        mineUI = player.transform.Find("Mine_UI");
         canMine = false;
     }
 
