@@ -8,21 +8,20 @@ public class Patron : MonoBehaviour
     private RuneType rune;
     private ChatBubble chatbubble;
     private Inventory playerInventory;
+    private PatronMovement patronStatus;
     private int amount;
 
     public bool returnToSpawn;
     public bool waitInLine;
-
-    float distance;
-
     
     void Start()
     {
         runes = new List<RuneType>();
         chatbubble = transform.Find("Chat Bubble").GetComponent<ChatBubble>();
+        patronStatus = GameObject.FindObjectOfType<PatronMovement>();
         returnToSpawn = false;
         waitInLine = false;
-
+        chatbubble.gameObject.SetActive(false);
         // Get each type of rune the patron can ask for.
         foreach (RuneType type in Enum.GetValues(typeof(RuneType)))
         {
@@ -35,15 +34,22 @@ public class Patron : MonoBehaviour
         // TODO change from being hard coded numbers, only here for testing, this won't happen OOF
         amount = UnityEngine.Random.Range(1, 5);
 
-        chatbubble.SetIcon(rune);
-        chatbubble.SetText("Greetings Dwarf, I will purchase a " + rune + " rune. I'll take " + amount +  " of them.");
-
         playerInventory = GameObject.Find("Player").GetComponent<Inventory>();
     }
 
     public void Update()
     {
-        
+        if (patronStatus.ReadyToBuy())
+        {
+            chatbubble.gameObject.SetActive(true);
+            chatbubble.SetIcon(rune);
+            chatbubble.SetText("Greetings Dwarf, I will purchase a " + rune + " rune. I'll take " + amount + " of them.");
+        }
+
+        else if (returnToSpawn)
+        {
+            chatbubble.SetText("Thanks little guy, i'm off!");
+        }
     }
 
     public bool Purchase()

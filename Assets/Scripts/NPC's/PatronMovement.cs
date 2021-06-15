@@ -27,7 +27,7 @@ public class PatronMovement : MonoBehaviour
         else if (patron.returnToSpawn)
         {
             transform.position = Vector2.MoveTowards(transform.position, patronSpawn.transform.position, Time.deltaTime * speed);
-
+            
             if (transform.position == patronSpawn.transform.position)
             {
                 gameObject.SetActive(false);
@@ -43,6 +43,19 @@ public class PatronMovement : MonoBehaviour
         if(patron.waitInLine && !patron.returnToSpawn)
         {
             transform.position = Vector2.MoveTowards(transform.position, transform.position, 0);
+        }
+    }
+
+    public bool ReadyToBuy()
+    {
+        if(transform.position == patronWait.transform.position)
+        {
+            return true;
+        }
+
+        else
+        {
+            return false;
         }
     }
 }
