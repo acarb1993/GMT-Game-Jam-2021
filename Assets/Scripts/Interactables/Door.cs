@@ -37,6 +37,12 @@ public class Door : MonoBehaviour
             doorUI.SetActive(true);
             canOpen = true;
         }
+
+        if(collision.gameObject.tag == "Patron" && !anim.GetBool("isOpenDoor"))
+        {
+            anim.SetBool("isOpenDoor", true);
+            anim.SetBool("isClosedDoor", false);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -53,6 +59,15 @@ public class Door : MonoBehaviour
                 door.GetComponent<BoxCollider2D>().enabled = true;
 
                 doorUI.SetActive(false);
+            }
+        }
+
+        if(other.gameObject.tag == "Patron")
+        {
+            if (anim.GetBool("isOpenDoor"))
+            {
+                anim.SetBool("isOpenDoor", false);
+                anim.SetBool("isClosedDoor", true);
             }
         }
     }
