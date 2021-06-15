@@ -79,11 +79,6 @@ public class Patron : MonoBehaviour
         {
             waitInLine = true;
         }
-
-        else
-        {
-            waitInLine = false;
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

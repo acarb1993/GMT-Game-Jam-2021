@@ -12,28 +12,26 @@ public class RuneVein : MonoBehaviour
 
     private Mine mining;
 
-    protected int veinDurability { get; set; }
+    public RuneVein_UI runeVeinUI;
 
+    public float durability;
+    public float maxDurability = 100f;
 
     void Start()
     {
         mining = FindObjectOfType<Mine>();
         playerInventory = player.GetComponent<Inventory>();
         canMine = false;
-        Init();
+
+        durability = maxDurability;
+        runeVeinUI.SetDurability(durability, maxDurability);
     }
 
-    public int Init()
-    {
-        veinDurability = 100;
-
-        return veinDurability;
-    }
-
-    
     void Update()
     {
-        if(canMine)
+        runeVeinUI.SetDurability(durability, maxDurability);
+
+        if (canMine)
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
@@ -41,7 +39,7 @@ public class RuneVein : MonoBehaviour
             }
         }
 
-        if(veinDurability <= 0)
+        if(durability <= 0f)
         {
             gameObject.SetActive(false);
         }
@@ -49,7 +47,7 @@ public class RuneVein : MonoBehaviour
 
     public void VeinDamage()
     {
-        veinDurability -= 20;
+        durability -= 20;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
