@@ -5,15 +5,34 @@ using UnityEngine;
 public class PatronMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 2;
-    private GameObject shopEntrance;
+    private GameObject patronWait;
+    private GameObject patronSpawn;
+
+    Patron patron;
     
     void Start()
     {
-        shopEntrance = GameObject.Find("Shop Entrance");
+        patron = GameObject.FindObjectOfType<Patron>();
+        patronWait = GameObject.Find("Patron Wait");
+        patronSpawn = GameObject.Find("Patron Spawn");
     }
 
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, shopEntrance.transform.position, Time.deltaTime * speed);
+        if (!patron.returnToSpawn)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, patronWait.transform.position, Time.deltaTime * speed);
+        }
+
+        else if (patron.returnToSpawn)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, patronSpawn.transform.position, Time.deltaTime * speed);
+
+            if (transform.position == patronSpawn.transform.position)
+            {
+                gameObject.SetActive(false);
+                patron.returnToSpawn = false;
+            }
+        }
     }
 }

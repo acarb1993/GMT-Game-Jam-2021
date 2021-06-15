@@ -10,11 +10,14 @@ public class Patron : MonoBehaviour
     private Inventory playerInventory;
     private int amount;
 
-    // Start is called before the first frame update
+    public bool returnToSpawn;
+
+    
     void Start()
     {
         runes = new List<RuneType>();
         chatbubble = transform.Find("Chat Bubble").GetComponent<ChatBubble>();
+        returnToSpawn = false;
 
         // Get each type of rune the patron can ask for.
         foreach (RuneType type in Enum.GetValues(typeof(RuneType)))
@@ -39,10 +42,12 @@ public class Patron : MonoBehaviour
         if(playerInventory.inventory[rune] >= amount)
         {
             chatbubble.SetText("Thanks little guy, i'm off!");
+            returnToSpawn = true;
             return true;
         }
 
         chatbubble.SetText("I don't believe you have enough runes in stock, you need " + amount + " of them");
+        returnToSpawn = false;
         return false;
     }
 

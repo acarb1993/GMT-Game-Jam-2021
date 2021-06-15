@@ -6,14 +6,13 @@ public class Craft : MonoBehaviour
 {
     private RuneTable craftingTable;
     private Inventory inv;
-    // Start is called before the first frame update
+
     void Start()
     {
         craftingTable = GameObject.Find("Rune-Table").GetComponent<RuneTable>();
         inv = GetComponent<Inventory>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(craftingTable.CanCraft)
