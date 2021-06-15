@@ -11,6 +11,9 @@ public class Patron : MonoBehaviour
     private int amount;
 
     public bool returnToSpawn;
+    public bool waitInLine;
+
+    float distance;
 
     
     void Start()
@@ -18,6 +21,7 @@ public class Patron : MonoBehaviour
         runes = new List<RuneType>();
         chatbubble = transform.Find("Chat Bubble").GetComponent<ChatBubble>();
         returnToSpawn = false;
+        waitInLine = false;
 
         // Get each type of rune the patron can ask for.
         foreach (RuneType type in Enum.GetValues(typeof(RuneType)))
@@ -35,6 +39,11 @@ public class Patron : MonoBehaviour
         chatbubble.SetText("Greetings Dwarf, I will purchase a " + rune + " rune. I'll take " + amount +  " of them.");
 
         playerInventory = GameObject.Find("Player").GetComponent<Inventory>();
+    }
+
+    public void Update()
+    {
+        
     }
 
     public bool Purchase()
@@ -58,6 +67,16 @@ public class Patron : MonoBehaviour
         if(sell != null)
         {
             sell.patron = GetComponent<Patron>();
+        }
+        
+        if(collision.gameObject.tag == "Patron")
+        {
+            waitInLine = true;
+        }
+
+        else
+        {
+            waitInLine = false;
         }
     }
 

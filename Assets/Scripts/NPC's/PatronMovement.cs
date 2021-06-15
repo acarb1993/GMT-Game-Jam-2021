@@ -19,7 +19,7 @@ public class PatronMovement : MonoBehaviour
 
     void Update()
     {
-        if (!patron.returnToSpawn)
+        if (!patron.returnToSpawn && !patron.waitInLine)
         {
             transform.position = Vector2.MoveTowards(transform.position, patronWait.transform.position, Time.deltaTime * speed);
         }
@@ -33,6 +33,16 @@ public class PatronMovement : MonoBehaviour
                 gameObject.SetActive(false);
                 patron.returnToSpawn = false;
             }
+        }
+
+        WaitInLine();
+    }
+
+    public void WaitInLine()
+    {
+        if(patron.waitInLine && !patron.returnToSpawn)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, transform.position, 0);
         }
     }
 }
