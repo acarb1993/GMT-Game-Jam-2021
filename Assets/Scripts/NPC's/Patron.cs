@@ -22,6 +22,7 @@ public class Patron : MonoBehaviour
         returnToSpawn = false;
         waitInLine = false;
         chatbubble.gameObject.SetActive(false);
+
         // Get each type of rune the patron can ask for.
         foreach (RuneType type in Enum.GetValues(typeof(RuneType)))
         {
@@ -70,7 +71,7 @@ public class Patron : MonoBehaviour
     {
         Sell sell = collision.GetComponent<Sell>();
         
-        if(sell != null)
+        if(sell != null && patronStatus.ReadyToBuy())
         {
             sell.patron = GetComponent<Patron>();
         }
