@@ -47,10 +47,11 @@ public class Pause_Menu : MonoBehaviour
     public void QuitGame()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1;
     }
 
     public void Credits()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 }

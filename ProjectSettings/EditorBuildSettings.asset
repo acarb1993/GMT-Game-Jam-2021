@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: e0e8d420a484ece408ebfb5959b21d0e
   - enabled: 1
+    path: Assets/Scenes/LoadScene.unity
+    guid: a7013964a7b396a449f6e4ccab4e492b
+  - enabled: 1
     path: Assets/Scenes/DwarfMiner.unity
     guid: c67f2d72c5cd6f341b79534d7189c2c7
   - enabled: 1
