@@ -57,6 +57,8 @@ public class Patron : MonoBehaviour
     {
         if(playerInventory.inventory[rune] >= amount)
         {
+            playerInventory.inventory[rune] -= amount;
+
             chatbubble.SetText("Thanks little guy, i'm off!");
             returnToSpawn = true;
             return true;
